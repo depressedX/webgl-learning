@@ -8,6 +8,12 @@ module.exports = {
         path: __dirname + '/public',
         filename: '[name].js'
     },
+    devServer: {
+        contentBase: "./public",//本地服务器所加载的页面所在的目录
+        historyApiFallback: true,//不跳转
+        inline: true, //实时刷新
+        host:'localhost'
+    },
     module: {
         rules: [
             { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },

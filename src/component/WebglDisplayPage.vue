@@ -1,12 +1,11 @@
 <template>
     <div>
         <h1>Hello   Webgl</h1>
-        <h2>cur shape:  <span class="cur-shape">{{shape}}</span></h2>
         <md-layout md-row class="canvas-area-wrapper">
             <md-card class="canvas-area">
                 <md-card-header class="canvas-area__header">
-                    <div class="md-title">Title goes here</div>
-                    <div class="md-subhead">Subtitle here</div>
+                    <div class="md-title">current Shape</div>
+                    <div class="md-subhead cur-shape">{{shape}}</div>
                 </md-card-header>
 
                 <md-card-content>
@@ -26,8 +25,11 @@
                 console.log(`shape changed to ${val}`)
             }
         },
-        created(){
-            canvasManager.init(this.$refs.canvas)
+        mounted(){
+
+            this.$nextTick(function () {
+                canvasManager.init(this.$refs.canvas)
+            })
         },
         props:{
             shape:{
@@ -44,7 +46,7 @@
     }
 </script>
 <style scoped>
-    h1,h2 {
+    h1{
         text-align: center;
     }
     .cur-shape{
