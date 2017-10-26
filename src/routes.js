@@ -8,7 +8,7 @@ const routesAboutWebgl = webglExampleList.map((v)=>({
 
 const routes = [
     {
-        path: '/webgl-learning',
+        path: '/webgl-learning/public',
         component: App,
         children:routesAboutWebgl,
         // props: {
