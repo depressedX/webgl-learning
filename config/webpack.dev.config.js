@@ -15,11 +15,11 @@ module.exports = {
         contentBase: "./public",//本地服务器所加载的页面所在的目录
         historyApiFallback: true,//不跳转
         inline: true, //实时刷新
-        host:'localhost'
+        host: 'localhost'
     },
     module: {
         rules: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            {test: /\.js$/, exclude: /node_modules/, loader: "babel-loader"},
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
@@ -44,13 +44,13 @@ module.exports = {
             }
         ]
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackConfig({
-            template:'./src/index.tmpl.html',
-            filename:'index.html'
+            template: './src/index.tmpl.html',
+            filename: 'index.html'
         }),
         new webpack.DefinePlugin({
-            ROUTER_ROOT_PATH:consts.env.ROUTER_ROOT_PATH
+            ROUTER_ROOT_PATH:JSON.stringify(consts.env.ROUTER_ROOT_PATH)
         })
     ],
     resolve: {
