@@ -15,7 +15,7 @@ const prod = {
 
 const gitv = {
     env: {
-        ROUTER_ROOT_PATH: '/webgl-learning/public'
+        ROUTER_ROOT_PATH: '/webgl-learning/gitpages'
     },
     OUTPUT_PATH: path.resolve(__dirname, '../gitpages')
 }
