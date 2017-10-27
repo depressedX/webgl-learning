@@ -6,9 +6,15 @@ const routesAboutWebgl = webglExampleList.map((v)=>({
     name:v
 }))
 
+// 不同环境下的路由路径
+const rootPath={
+    localServer:'/',
+    github:'/webgl-learning/public'
+}
+
 const routes = [
     {
-        path: '/webgl-learning/public',
+        path: rootPath.localServer,
         component: App,
         children:routesAboutWebgl,
         // props: {

@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack",
-    "server": "webpack-dev-server --open",
-    "gitv": "webpack --config webpack.gitv.config.js"
+    "start": "webpack --config config/webpack.dev.config.js",
+    "server": "webpack-dev-server --open --config config/webpack.dev.config.js"
   },
   "keywords": [],
   "author": "",

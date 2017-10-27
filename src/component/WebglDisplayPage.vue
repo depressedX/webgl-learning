@@ -16,51 +16,61 @@
     </div>
 </template>
 <script>
-    import {canvasManager} from './../module/webgl'
+    //    import {canvasManager} from './../module/webgl'
 
     export default {
 
-        watch:{
-            shape(val){
+        watch: {
+            shape(val) {
                 console.log(`shape changed to ${val}`)
             }
         },
-        mounted(){
+        mounted() {
 
+//            异步加载绘图相关模块
             this.$nextTick(function () {
-                canvasManager.init(this.$refs.canvas)
+                setTimeout(() => {
+                    require.ensure(['./../module/webgl/canvasManager','three'], () => {
+                        const canvasManager = require('./../module/webgl/canvasManager').canvasManager;
+                        canvasManager.init(this.$refs.canvas)
+                    })
+                }, 0)
+
             })
         },
-        props:{
-            shape:{
-                type:String,
-                required:true
+        props: {
+            shape: {
+                type: String,
+                required: true
             }
         },
-        watch:{
+        watch: {
 //            当shape发生变化时执行相应脚本
-            shape(val){
+            shape(val) {
 
             }
         }
     }
 </script>
 <style scoped>
-    h1{
+    h1 {
         text-align: center;
     }
-    .cur-shape{
+
+    .cur-shape {
         color: red;
     }
 
     .canvas-area {
         width: 720px;
     }
-    .canvas-area-wrapper{
+
+    .canvas-area-wrapper {
         margin-top: 3em;
         justify-content: center;
     }
-    canvas{
+
+    canvas {
         width: 100%;
         border: 1px solid gray;
     }
