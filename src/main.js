@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 import routes from './routes'
 import 'material-design-icons/iconfont/material-icons.css'
 import 'vue-material/dist/vue-material.css'
-
 Vue.use(VueMaterial);
 Vue.use(VueRouter)
 

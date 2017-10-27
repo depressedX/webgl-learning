@@ -1,8 +1,12 @@
 const webpack = require('webpack');
 const HtmlWebpackConfig = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 
 // 在这里切换
-const consts = require('./const.js').gitv;
+const ENV = 'gitv';
+
+const consts = require('./const.js')[ENV];
 
 module.exports = {
     devtool: 'eval-source-map',
@@ -47,11 +51,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackConfig({
             template: './src/index.tmpl.html',
-            filename: 'index.html'
+            filename: 'index.html',
+            favicon: './src/img/favicon.ico'
         }),
         new webpack.DefinePlugin({
-            ROUTER_ROOT_PATH:JSON.stringify(consts.env.ROUTER_ROOT_PATH)
-        })
+            ROUTER_ROOT_PATH: JSON.stringify(consts.ROUTER_ROOT_PATH)
+        }),
+        new CleanWebpackPlugin(ENV == 'gitv' ? ['gitpages'] : ['public'])
     ],
     resolve: {
         alias: {

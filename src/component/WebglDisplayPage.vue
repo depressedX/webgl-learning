@@ -16,7 +16,6 @@
     </div>
 </template>
 <script>
-    //    import {canvasManager} from './../module/webgl'
 
     export default {
 
@@ -42,12 +41,6 @@
             shape: {
                 type: String,
                 required: true
-            }
-        },
-        watch: {
-//            当shape发生变化时执行相应脚本
-            shape(val) {
-
             }
         }
     }
