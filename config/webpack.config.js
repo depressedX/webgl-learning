@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 // 在这里切换
-const ENV = 'gitv';
+const ENV = 'dev';
 
 const consts = require('./const.js')[ENV];
 

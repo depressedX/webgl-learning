@@ -14,7 +14,7 @@
             </md-toolbar>
             <md-list>
                 <md-list-item v-for="item in webglExampleList" :key="item">
-                    <router-link :to="{name:item}">{{item}}</router-link>
+                    <router-link :to="{name:item}" @click.native="changeCurShape(item)">{{item}}</router-link>
                 </md-list-item>
             </md-list>
         </md-sidenav>
@@ -29,6 +29,9 @@
         methods: {
             toggleSidenav() {
                 this.$refs.sidenav.toggle();
+            },
+            changeCurShape(val){
+                this.curShape = val;
             }
         },
         components:{
@@ -36,16 +39,17 @@
         },
         data(){
               return{
-                  webglExampleList
+                  webglExampleList,
+                  curShape:''
               }
         },
         props:{
 
         },
         computed:{
-            curShape(){
-                return this.$route.path.slice(1)
-            }
+//            curShape(){
+//                return this.$route.path.slice(1)
+//            }
         },
         beforeRouteUpdate(to,from,next){
             this.$refs.sidenav.close();
