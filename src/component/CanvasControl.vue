@@ -10,7 +10,7 @@
                 <label>绘制精度</label>
                 <md-input v-model="spec"></md-input>
             </md-input-container>
-            <md-button class="md-primary" @click="$emit('reset',{spec:parseInt(spec)})">叫姐姐</md-button>
+            <md-button class="md-primary" @click="$emit('reset',{spec:parseInt(spec)})">更改精度</md-button>
         </form>
     </div>
 </template>

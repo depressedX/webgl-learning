@@ -23,8 +23,8 @@
 </template>
 
 <script>
-    import WebglDisplayPage from './WebglDisplayPage.vue'
-    import webglExampleList from './../module/webgl'
+    import WebglDisplayPage from './component/WebglDisplayPage.vue'
+    import webglExampleList from './module/webgl/index'
     export default {
         methods: {
             toggleSidenav() {

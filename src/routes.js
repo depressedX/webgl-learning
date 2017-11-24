@@ -1,4 +1,4 @@
-import App from './component/App.vue'
+import App from './App.vue'
 import webglExampleList from './module/webgl'
 
 const routesAboutWebgl = webglExampleList.map((v)=>({
